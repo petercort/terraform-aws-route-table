@@ -31,4 +31,5 @@ variable "routes" {
     vpc_endpoint_name = optional(string, null)
     vpc_peering_connection_name = optional(string, null)
     }))
+  description = "Provides a resource to create a routing table entry (a route) in a VPC routing table."
 }

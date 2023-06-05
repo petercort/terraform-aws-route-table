@@ -1,13 +1,11 @@
 variable "route_table_name" {
   type        = string
   description = "Name of the route table."
-  default     = null
 }
 
 variable "vpc_name" {
   type        = string
   description = "Name of the VPC to attach to."
-  default     = null
 }
 
 variable "tags" {

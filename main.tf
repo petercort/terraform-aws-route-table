@@ -65,7 +65,7 @@ data "aws_ec2_transit_gateway" "transit_gateway" {
 }
 data "aws_vpc_endpoint" "vpc_endpoint" {
   for_each = { for index, route in var.routes : index => route.vpc_endpoint_name if route.vpc_endpoint_name != null}
-  vpc_id = data.aws_vpcs.vpc.ids.0
+  vpc_id = var.vpc_id
   filter {
     name = "tag:Name"
     values = [each.value.vpc_endpoint_name]

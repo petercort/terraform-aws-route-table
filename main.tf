@@ -104,3 +104,9 @@ resource "aws_route" "route" {
   vpc_endpoint_id = each.value.vpc_endpoint_name == null ? null : data.aws_vpc_endpoint.vpc_endpoint[each.key].ids.0
   vpc_peering_connection_id = each.value.vpc_peering_connection_name == null ? null : data.aws_vpc_peering_connections.vpc_peering_connection[each.key].ids.0
 }
+
+resource "aws_route_table_association" "assocation" {
+  subnet_id = var.subnet_id != null ? var.subnet_id : null 
+  gateway_id = var.gateway_id != null ? var.gateway_id : null 
+  route_table_id = aws_route_table.route_table.id
+}

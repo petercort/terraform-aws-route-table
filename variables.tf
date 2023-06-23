@@ -14,6 +14,18 @@ variable "tags" {
   default     = {}
 }
 
+variable "subnet_id" {
+  type        = string
+  description = "Subnet ID to assocaite route table with."
+  default     = null 
+}
+
+variable "gateway_id" {
+  type        = string
+  description = "Gateway ID to associate route table with."
+  defeault    = null
+}
+
 variable "routes" {
   type = list(object({
     destination_cidr_block = optional(string, null)

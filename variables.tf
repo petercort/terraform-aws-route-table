@@ -3,9 +3,9 @@ variable "route_table_name" {
   description = "Name of the route table."
 }
 
-variable "vpc_name" {
+variable "vpc_id" {
   type        = string
-  description = "Name of the VPC to attach to."
+  description = "Id of the VPC to attach to."
 }
 
 variable "tags" {

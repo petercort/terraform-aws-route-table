@@ -80,15 +80,8 @@ data "aws_vpc_peering_connections" "vpc_peering_connection" {
   }
 }
 
-data "aws_vpcs" "vpc" {
-  filter {
-    name   = "tag:Name"
-    values = [var.vpc_name]
-  }
-}
-
 resource "aws_route_table" "route_table" {
-  vpc_id = data.aws_vpcs.vpc.ids.0
+  vpc_id = var.vpc_id
   tags = merge(tomap({ Name = var.route_table_name }), var.tags)
 }
 
